@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: novatech-uz-test
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: NOVATECH_ADMIN_USER
+        sync: false
+      - key: NOVATECH_ADMIN_PASSWORD
+        sync: false
